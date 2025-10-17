@@ -1,0 +1,372 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{710A4FC1-8B67-4721-B998-E7423CEBCBA9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JewellryShop</RootNamespace>
+    <AssemblyName>JewellryShop</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44313</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AboutUs.aspx" />
+    <Content Include="AddProduct.aspx" />
+    <Content Include="AddToCart.aspx" />
+    <Content Include="AdminViewProducts.aspx" />
+    <Content Include="App_Data\JewelryShop.mdf" />
+    <Content Include="App_Data\JewelryShop_log.ldf">
+      <DependentUpon>JewelryShop.mdf</DependentUpon>
+    </Content>
+    <Content Include="assets\css\owl.video.play.png" />
+    <Content Include="assets\css\plugins.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\css\vendor\bootstrap.min.css" />
+    <Content Include="assets\css\vendor\font-awesome.css" />
+    <Content Include="assets\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="assets\img\about-img-2.jpg" />
+    <Content Include="assets\img\about-img.png" />
+    <Content Include="assets\img\air-plane.png" />
+    <Content Include="assets\img\arrow.png" />
+    <Content Include="assets\img\author-1.jpg" />
+    <Content Include="assets\img\author-2.jpg" />
+    <Content Include="assets\img\author-3.jpg" />
+    <Content Include="assets\img\blog-thumb-2.jpg" />
+    <Content Include="assets\img\blog-thumb-3.jpg" />
+    <Content Include="assets\img\blog-thumb.jpg" />
+    <Content Include="assets\img\cancel.png" />
+    <Content Include="assets\img\clothing.jpg" />
+    <Content Include="assets\img\cog.png" />
+    <Content Include="assets\img\daimond.png" />
+    <Content Include="assets\img\favicon.ico" />
+    <Content Include="assets\img\footer-bg.jpg" />
+    <Content Include="assets\img\gallery-img-1.jpg" />
+    <Content Include="assets\img\gallery-img-2.jpg" />
+    <Content Include="assets\img\gallery-img-3.jpg" />
+    <Content Include="assets\img\gallery-img-4.jpg" />
+    <Content Include="assets\img\home_4_slide_1.jpg" />
+    <Content Include="assets\img\home_4_slide_2.jpg" />
+    <Content Include="assets\img\home_6_cat_1.jpg" />
+    <Content Include="assets\img\home_6_cat_2.jpg" />
+    <Content Include="assets\img\home_6_cat_3.jpg" />
+    <Content Include="assets\img\home_6_cat_4.jpg" />
+    <Content Include="assets\img\home_6_slide_1.jpg" />
+    <Content Include="assets\img\home_6_slide_2.jpg" />
+    <Content Include="assets\img\jewellery-cat.jpg" />
+    <Content Include="assets\img\jewelry.jpg" />
+    <Content Include="assets\img\logo-black.png" />
+    <Content Include="assets\img\logo.png" />
+    <Content Include="assets\img\men-cat.jpg" />
+    <Content Include="assets\img\men-pro.jpg" />
+    <Content Include="assets\img\money-back.png" />
+    <Content Include="assets\img\new-product-1.jpg" />
+    <Content Include="assets\img\new-product-2.jpg" />
+    <Content Include="assets\img\new-product-3.jpg" />
+    <Content Include="assets\img\new-product-4.jpg" />
+    <Content Include="assets\img\new-product-gallery-1.jpg" />
+    <Content Include="assets\img\new-product-gallery-2.jpg" />
+    <Content Include="assets\img\page-title-bg.jpg" />
+    <Content Include="assets\img\payment.png" />
+    <Content Include="assets\img\paypal-card.jpg" />
+    <Content Include="assets\img\product-1.jpg" />
+    <Content Include="assets\img\product-2.jpg" />
+    <Content Include="assets\img\product-3.jpg" />
+    <Content Include="assets\img\product-4.jpg" />
+    <Content Include="assets\img\sale-product-1.jpg" />
+    <Content Include="assets\img\sale-product-2.jpg" />
+    <Content Include="assets\img\single-blog.jpg" />
+    <Content Include="assets\img\single-pro-thumb-2.jpg" />
+    <Content Include="assets\img\single-pro-thumb-3.jpg" />
+    <Content Include="assets\img\single-pro-thumb-4.jpg" />
+    <Content Include="assets\img\single-pro-thumb-5.jpg" />
+    <Content Include="assets\img\single-pro-thumb.jpg" />
+    <Content Include="assets\img\slide-img-1.jpg" />
+    <Content Include="assets\img\slide-img-2.jpg" />
+    <Content Include="assets\img\slide-img-3.jpg" />
+    <Content Include="assets\img\slide-img-4.jpg" />
+    <Content Include="assets\img\slide-img-5.jpg" />
+    <Content Include="assets\img\suit-cat.jpg" />
+    <Content Include="assets\img\support.png" />
+    <Content Include="assets\img\testi_bg.jpg" />
+    <Content Include="assets\img\title-line.png" />
+    <Content Include="assets\img\watch-cat.jpg" />
+    <Content Include="assets\img\women-cat.jpg" />
+    <Content Include="assets\img\women-cat2.jpg" />
+    <Content Include="assets\img\women.jpg" />
+    <Content Include="assets\js\active.js" />
+    <Content Include="assets\js\ajax-mail.js" />
+    <Content Include="assets\js\plugins.js" />
+    <Content Include="assets\js\vendor\bootstrap.min.js" />
+    <Content Include="assets\js\vendor\jquery-3.3.1.min.js" />
+    <Content Include="assets\js\vendor\jquery-migrate-1.4.1.min.js" />
+    <Content Include="assets\js\vendor\modernizr-2.8.3.min.js" />
+    <Content Include="assets\js\vendor\popper.min.js" />
+    <Content Include="Contact.aspx" />
+    <Content Include="Home.aspx" />
+    <Content Include="Images\about-img-2.jpg" />
+    <Content Include="Images\about-img.png" />
+    <Content Include="Images\air-plane.png" />
+    <Content Include="Images\arrow.png" />
+    <Content Include="Images\author-1.jpg" />
+    <Content Include="Images\author-2.jpg" />
+    <Content Include="Images\author-3.jpg" />
+    <Content Include="Images\blog-thumb-2.jpg" />
+    <Content Include="Images\blog-thumb-3.jpg" />
+    <Content Include="Images\blog-thumb.jpg" />
+    <Content Include="Images\cancel.png" />
+    <Content Include="Images\clothing.jpg" />
+    <Content Include="Images\cog.png" />
+    <Content Include="Images\daimond.png" />
+    <Content Include="Images\favicon.ico" />
+    <Content Include="Images\footer-bg.jpg" />
+    <Content Include="Images\gallery-img-1.jpg" />
+    <Content Include="Images\gallery-img-2.jpg" />
+    <Content Include="Images\gallery-img-3.jpg" />
+    <Content Include="Images\gallery-img-4.jpg" />
+    <Content Include="Images\home_4_slide_1.jpg" />
+    <Content Include="Images\home_4_slide_2.jpg" />
+    <Content Include="Images\home_6_cat_1.jpg" />
+    <Content Include="Images\home_6_cat_2.jpg" />
+    <Content Include="Images\home_6_cat_3.jpg" />
+    <Content Include="Images\home_6_cat_4.jpg" />
+    <Content Include="Images\home_6_slide_1.jpg" />
+    <Content Include="Images\home_6_slide_2.jpg" />
+    <Content Include="Images\jewellery-cat.jpg" />
+    <Content Include="Images\jewelry.jpg" />
+    <Content Include="Images\logo-black.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\men-cat.jpg" />
+    <Content Include="Images\men-pro.jpg" />
+    <Content Include="Images\money-back.png" />
+    <Content Include="Images\new-product-1.jpg" />
+    <Content Include="Images\new-product-2.jpg" />
+    <Content Include="Images\new-product-3.jpg" />
+    <Content Include="Images\new-product-4.jpg" />
+    <Content Include="Images\new-product-gallery-1.jpg" />
+    <Content Include="Images\new-product-gallery-2.jpg" />
+    <Content Include="Images\page-title-bg.jpg" />
+    <Content Include="Images\payment.png" />
+    <Content Include="Images\paypal-card.jpg" />
+    <Content Include="Images\product-1.jpg" />
+    <Content Include="Images\product-2.jpg" />
+    <Content Include="Images\product-3.jpg" />
+    <Content Include="Images\product-4.jpg" />
+    <Content Include="Images\sale-product-1.jpg" />
+    <Content Include="Images\sale-product-2.jpg" />
+    <Content Include="Images\single-blog.jpg" />
+    <Content Include="Images\single-pro-thumb-2.jpg" />
+    <Content Include="Images\single-pro-thumb-3.jpg" />
+    <Content Include="Images\single-pro-thumb-4.jpg" />
+    <Content Include="Images\single-pro-thumb-5.jpg" />
+    <Content Include="Images\single-pro-thumb.jpg" />
+    <Content Include="Images\slide-img-1.jpg" />
+    <Content Include="Images\slide-img-2.jpg" />
+    <Content Include="Images\slide-img-3.jpg" />
+    <Content Include="Images\slide-img-4.jpg" />
+    <Content Include="Images\slide-img-5.jpg" />
+    <Content Include="Images\suit-cat.jpg" />
+    <Content Include="Images\support.png" />
+    <Content Include="Images\testi_bg.jpg" />
+    <Content Include="Images\title-line.png" />
+    <Content Include="Images\watch-cat.jpg" />
+    <Content Include="Images\women-cat.jpg" />
+    <Content Include="Images\women-cat2.jpg" />
+    <Content Include="Images\women.jpg" />
+    <Content Include="Login.aspx" />
+    <Content Include="ProductView.aspx" />
+    <Content Include="Register.aspx" />
+    <Content Include="Shop.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutUs.aspx.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AboutUs.aspx.designer.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddProduct.aspx.cs">
+      <DependentUpon>AddProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddProduct.aspx.designer.cs">
+      <DependentUpon>AddProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddToCart.aspx.cs">
+      <DependentUpon>AddToCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddToCart.aspx.designer.cs">
+      <DependentUpon>AddToCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminViewProducts.aspx.cs">
+      <DependentUpon>AdminViewProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminViewProducts.aspx.designer.cs">
+      <DependentUpon>AdminViewProducts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductView.aspx.cs">
+      <DependentUpon>ProductView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductView.aspx.designer.cs">
+      <DependentUpon>ProductView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shop.aspx.cs">
+      <DependentUpon>Shop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Shop.aspx.designer.cs">
+      <DependentUpon>Shop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="assets\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="assets\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="assets\fonts\fontawesome-webfont3e6e.woff2" />
+    <Content Include="assets\fonts\fontawesome-webfontd41d.eot" />
+    <None Include="packages.config" />
+    <Content Include="Site1.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>4296</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44313/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

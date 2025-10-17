@@ -1,0 +1,357 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="JewellryShop.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="meta description" />
+
+    <title>Jewelry Store</title>
+
+    <!--=== Favicon ===-->
+    <link
+        rel="shortcut icon"
+        href="assets/img/favicon.ico"
+        type="image/x-icon" />
+
+    <!--== Google Fonts ==-->
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i" />
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://fonts.googleapis.com/css?family=Montserrat:400,700" />
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" />
+
+    <!--=== Bootstrap CSS ===-->
+    <link href="assets/css/vendor/bootstrap.min.css" rel="stylesheet" />
+    <!--=== Font-Awesome CSS ===-->
+    <link href="assets/css/vendor/font-awesome.css" rel="stylesheet" />
+    <!--=== Plugins CSS ===-->
+    <link href="assets/css/plugins.css" rel="stylesheet" />
+    <!--=== Main Style CSS ===-->
+    <link href="assets/css/style.css" rel="stylesheet" />
+
+    <!-- Modernizer JS -->
+    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <!--[if lt IE 9]>
+      <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+        .user-label {
+            font-weight: 600;
+            margin-left: 5px;
+        }
+
+        #header-area .dropdown-toggle i,
+        #header-area .fa-shopping-cart {
+            color: #333;
+            cursor: pointer;
+        }
+        /* Profile Icon */
+        .profile-icon {
+            font-size: 18px; /* bigger clickable area */
+            font-weight: 600;
+            color: #333;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+            .profile-icon:hover {
+                background: #f4f4f4;
+                text-decoration: none;
+            }
+
+        /* Dropdown Menu Styling */
+        .profile-dropdown {
+            min-width: 180px; /* wider menu */
+            font-size: 15px; /* larger text */
+            padding: 8px 0;
+            border-radius: 8px;
+        }
+
+            .profile-dropdown .dropdown-item {
+                padding: 10px 15px;
+            }
+
+                .profile-dropdown .dropdown-item i {
+                    width: 18px;
+                    text-align: center;
+                }
+
+        .btn-logout {
+            background: none !important;
+            border: none !important;
+            text-align: left;
+            width: 100%;
+            font-size: 15px;
+            padding: 10px 15px;
+            color: #333;
+            cursor: pointer;
+        }
+
+            .btn-logout:hover {
+                background: #f4f4f4;
+                color: #000;
+            }
+    </style>
+</head>
+
+<body>
+    <form id="form1" runat="server">
+        <!--== Header Area Start ==-->
+        <header id="header-area" class="header__3">
+            <div class="ruby-container">
+                <div class="row">
+                    <!-- Logo Area Start -->
+                    <div class="col-3 col-lg-1 col-xl-2 m-auto">
+                        <a href="Home.aspx" class="logo-area">
+                            <img
+                                src="assets/img/logo-black.png"
+                                alt="Logo"
+                                class="img-fluid" />
+                        </a>
+                    </div>
+                    <!-- Logo Area End -->
+
+                    <!-- Navigation Area Start -->
+                    <div class="col-6 col-lg-9 col-xl-8 m-auto">
+                        <div class="main-menu-wrap d-flex justify-content-center">
+                            <nav id="mainmenu">
+                                <ul>
+                                    <li><a href="Home.aspx">Home</a></li>
+                                    <li><a href="Shop.aspx">Shop</a></li>
+                                    <li><a href="AboutUs.aspx">About Us</a></li>
+                                    <li><a href="Contact.aspx">Contact Us</a></li>
+                                    <% if (Session["Role"] != null && Session["Role"].ToString() == "admin")
+                                        { %>
+                                    <li><a href="AdminViewProducts.aspx">Manage Products</a></li>
+                                    <% }
+%>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <!-- Right Side User + Cart -->
+                    <div class="col-3 col-lg-2 col-xl-2 d-flex justify-content-end align-items-center">
+                        <!-- User Profile Dropdown -->
+                        <div class="dropdown mr-3">
+                            <a href="#" class="dropdown-toggle profile-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-user"></i><span class="ml-1">
+                                    <asp:Label ID="lblUser" runat="server" Text="Guest"></asp:Label>
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right profile-dropdown">
+                                <a class="dropdown-item" href="Profile.aspx"><i class="fa fa-id-card mr-2"></i>My Profile</a>
+                                <a class="dropdown-item" href="MyOrders.aspx"><i class="fa fa-shopping-bag mr-2"></i>My Orders</a>
+                                <div class="dropdown-divider"></div>
+
+                                <!-- ASP.NET Logout Button -->
+                                <% if (Session["userId"] == null || string.IsNullOrEmpty(Session["userId"] as string))
+                                    { %>
+                                <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="dropdown-item btn-logout" OnClick="btnLogin_Click" />
+                                <% }
+                                else
+                                { %>
+                                <asp:Button ID="btnLogout" runat="server" Text="Logout" CssClass="dropdown-item btn-logout" OnClick="btnLogout_Click" />
+                                <% } %>
+                            </div>
+                        </div>
+
+
+                        <!-- Cart Icon -->
+                        <a href="AddToCart.aspx" class="mr-3">
+                            <i class="fa fa-shopping-cart fa-lg"></i>
+                        </a>
+
+                        <!-- User Label -->
+
+                    </div>
+                    <!-- Navigation Area End -->
+
+
+
+                </div>
+            </div>
+        </header>
+        <!--== Header Area End ==-->
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+
+        <!-- Footer Area Start -->
+        <footer id="footer-area">
+            <!-- Footer Call to Action Start -->
+            <div class="footer-callto-action">
+                <div class="ruby-container">
+                    <div class="callto-action-wrapper">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6">
+                                <!-- Single Call-to Action Start -->
+                                <div class="single-callto-action d-flex">
+                                    <figure class="callto-thumb">
+                                        <img
+                                            src="assets/img/air-plane.png"
+                                            alt="WorldWide Shipping" />
+                                    </figure>
+                                    <div class="callto-info">
+                                        <h2>Free Shipping Worldwide</h2>
+                                        <p>On order over $150 - 7 days a week</p>
+                                    </div>
+                                </div>
+                                <!-- Single Call-to Action End -->
+                            </div>
+
+                            <div class="col-lg-3 col-md-6">
+                                <!-- Single Call-to Action Start -->
+                                <div class="single-callto-action d-flex">
+                                    <figure class="callto-thumb">
+                                        <img src="assets/img/support.png" alt="Support" />
+                                    </figure>
+                                    <div class="callto-info">
+                                        <h2>24/7 CUSTOMER SERVICE</h2>
+                                        <p>Call us 24/7 at 000 - 123 - 456k</p>
+                                    </div>
+                                </div>
+                                <!-- Single Call-to Action End -->
+                            </div>
+
+                            <div class="col-lg-3 col-md-6">
+                                <!-- Single Call-to Action Start -->
+                                <div class="single-callto-action d-flex">
+                                    <figure class="callto-thumb">
+                                        <img src="assets/img/money-back.png" alt="Money Back" />
+                                    </figure>
+                                    <div class="callto-info">
+                                        <h2>MONEY BACK Guarantee!</h2>
+                                        <p>Send within 30 days</p>
+                                    </div>
+                                </div>
+                                <!-- Single Call-to Action End -->
+                            </div>
+
+                            <div class="col-lg-3 col-md-6">
+                                <!-- Single Call-to Action Start -->
+                                <div class="single-callto-action d-flex">
+                                    <figure class="callto-thumb">
+                                        <img src="assets/img/cog.png" alt="Guide" />
+                                    </figure>
+                                    <div class="callto-info">
+                                        <h2>SHOPPING GUIDE</h2>
+                                        <p>Quis Eum Iure Reprehenderit</p>
+                                    </div>
+                                </div>
+                                <!-- Single Call-to Action End -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Call to Action End -->
+
+            <!-- Footer Follow Up Area Start -->
+            <div class="footer-followup-area">
+                <div class="ruby-container">
+                    <div class="followup-wrapper">
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <div class="follow-content-wrap">
+                                    <a href="index.html" class="logo">
+                                        <img src="assets/img/logo.png" alt="logo" /></a>
+                                    <p>
+                                        Eodem modo typi, qui nunc nobis videntur parum clari, fiant
+                    sollemnes in futurum
+                                    </p>
+
+                                    <div class="footer-social-icons">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                                        <a href="#"><i class="fa fa-instagram"></i></a>
+                                        <a href="#"><i class="fa fa-flickr"></i></a>
+                                    </div>
+
+                                    <a href="#">
+                                        <img src="assets/img/payment.png" alt="Payment Method" /></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Follow Up Area End -->
+
+            <!-- Footer Image Gallery Area Start -->
+            <div class="footer-image-gallery">
+                <div class="ruby-container">
+                    <div class="image-gallery-wrapper">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="imgage-gallery-carousel owl-carousel">
+                                    <div class="gallery-item">
+                                        <a href="#">
+                                            <img src="assets/img/gallery-img-1.jpg" alt="Gallery" /></a>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <a href="#">
+                                            <img src="assets/img/gallery-img-2.jpg" alt="Gallery" /></a>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <a href="#">
+                                            <img src="assets/img/gallery-img-3.jpg" alt="Gallery" /></a>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <a href="#">
+                                            <img src="assets/img/gallery-img-4.jpg" alt="Gallery" /></a>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <a href="#">
+                                            <img src="assets/img/gallery-img-3.jpg" alt="Gallery" /></a>
+                                    </div>
+                                    <div class="gallery-item">
+                                        <a href="#">
+                                            <img src="assets/img/gallery-img-2.jpg" alt="Gallery" /></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Image Gallery Area End -->
+
+        </footer>
+        <!-- Footer Area End -->
+        <!--=======================Javascript============================-->
+        <!--=== Jquery Min Js ===-->
+        <script src="assets/js/vendor/jquery-3.3.1.min.js"></script>
+        <!--=== Jquery Migrate Min Js ===-->
+        <script src="assets/js/vendor/jquery-migrate-1.4.1.min.js"></script>
+        <!--=== Popper Min Js ===-->
+        <script src="assets/js/vendor/popper.min.js"></script>
+        <!--=== Bootstrap Min Js ===-->
+        <script src="assets/js/vendor/bootstrap.min.js"></script>
+        <!--=== Plugins Min Js ===-->
+        <script src="assets/js/plugins.js"></script>
+
+        <!--=== Active Js ===-->
+        <script src="assets/js/active.js"></script>
+
+    </form>
+</body>
+</html>
